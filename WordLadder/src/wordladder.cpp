@@ -21,13 +21,14 @@ Set<string> dict();
 
 
 int main() {
-    find("code","data");
+    find("ANGEL","deVil");
 //    cout << "queueStack: "<< queueStack<<endl;
     cout << "Have a nice day." << endl;
     return 0;
 }
-
 void find(string w1, string w2){
+    w1=toLowerCase(w1);
+    w2=toLowerCase(w2);
     Set<string> dictionary=dict();
     cout << "word1: "<< w1 << " word2: "<< w2<<endl;
 //    Create an empty queue of stacks.
@@ -80,7 +81,6 @@ Set<string> neigbhor(string word, Set<string> dictionary){
     }
     return set;
 }
-
 Set<string> dict(){
     ifstream infile;
     promptUserForFile(infile, "enter a Dictionary file name? example: smalldict1.txt  smalldict2.txt dictionary.txt");
@@ -88,7 +88,7 @@ Set<string> dict(){
     Set<string> dictionary;
     string line;
     while(getline(infile,line)){
-        dictionary.add(line);
+        dictionary.add(toLowerCase(line));
     }
     return dictionary;
 }

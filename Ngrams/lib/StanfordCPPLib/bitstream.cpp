@@ -19,7 +19,7 @@
 #include <iostream>
 #include "error.h"
 #include "strlib.h"
-
+using namespace std;
 static const int NUM_BITS_IN_BYTE = 8;
 
 inline int GetNthBit(int n, int fromByte) {
