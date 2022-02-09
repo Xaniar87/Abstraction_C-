@@ -19,7 +19,7 @@
 #include <iostream>
 #include "error.h"
 #include "strlib.h"
-
+using namespace std;
 static const int NUM_BITS_IN_BYTE = 8;
 
 inline int GetNthBit(int n, int fromByte) {
@@ -136,7 +136,7 @@ long ibitstream::size() {
         error("ibitstream::size: Cannot get size of stream which is not open.");
     }
     clear();					// clear any error state
-    streampos cur = tellg();	// save current streampos
+    std::streampos cur = tellg();	// save current streampos
     seekg(0, std::ios::end);			// seek to end
     streampos end = tellg();	// get offset
     seekg(cur);					// seek back to original pos
