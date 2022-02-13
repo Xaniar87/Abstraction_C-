@@ -26,30 +26,40 @@ bool isMeasurable(int target, Vector<int>& weights);
 void printBinary(int digits, string soFar);
 void printBaseTen(int digits, string soFar);
 int sumVec(Vector<int> vec);
+int waysToClimb(int steps);
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 int numCalls=0;
 int main()
 {
+    cout << "waysToClimb(steps-1): "<<waysToClimb(4)<<endl;
 //    printBaseTen(2,"");
     //    for (int i=0;i<10;i++){
 //        cout << writeChars(i)<< endl;
 //    }
 //    cout << evaluate("(((1+2)*(5+9))+7)")<<endl;
 //    printBinary(2,"");
-    Vector<int> vec;
-    vec.add(3);
-    vec.add(4);
-    vec.add(6);
-    vec.add(8);
-    vec.add(9);
-    cout<< "isMeasurable(5,vec): "<<isMeasurable(5,vec)<<endl;
-    cout <<"numCalls: "<< numCalls <<endl;
+//    Vector<int> vec;
+//    vec.add(3);
+//    vec.add(4);
+//    vec.add(6);
+//    vec.add(8);
+//    vec.add(9);
+//    cout<< "isMeasurable(5,vec): "<<isMeasurable(5,vec)<<endl;
+//    cout <<"numCalls: "<< numCalls <<endl;
     return 0;
 }
 
 
-
+int waysToClimb(int steps) {
+    if(steps==0){
+        return 1;
+    }else if(steps<0){
+        return 0;
+    }else{
+        return waysToClimb(steps-1) + waysToClimb(steps-2);
+    }
+}
 
 bool isMeasurable(int target, Vector<int>& weights) {
     numCalls++;
