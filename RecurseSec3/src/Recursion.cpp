@@ -27,12 +27,14 @@ void printBinary(int digits, string soFar);
 void printBaseTen(int digits, string soFar);
 int sumVec(Vector<int> vec);
 int waysToClimb(int steps);
+bool isSubsequence(string big, string small);
 //------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------
 int numCalls=0;
 int main()
 {
-    cout << "waysToClimb(steps-1): "<<waysToClimb(4)<<endl;
+    cout << "isSubsequence: "<< isSubsequence("computer","cope")<<endl;
+//    cout << "waysToClimb(steps-1): "<<waysToClimb(4)<<endl;
 //    printBaseTen(2,"");
     //    for (int i=0;i<10;i++){
 //        cout << writeChars(i)<< endl;
@@ -50,6 +52,19 @@ int main()
     return 0;
 }
 
+bool isSubsequence(string big, string small) {
+    if(small==""){
+        return true;
+    }else if(big==""){
+        return false;
+    }else{
+        if(big[0]==small[0]){
+            return isSubsequence(big.substr(1),small.substr(1));
+        }else{
+            return isSubsequence(big.substr(1),small);
+        }
+    }
+}
 
 int waysToClimb(int steps) {
     if(steps==0){
